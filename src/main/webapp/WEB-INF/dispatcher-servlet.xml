@@ -31,6 +31,8 @@
             </props>
         </property>
 
+
+
         <property name="packagesToScan">
             <list>
                 <value>com.brina</value>

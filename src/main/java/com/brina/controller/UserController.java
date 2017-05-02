@@ -45,16 +45,22 @@ public class UserController {
         return "error";
     }
 
-    @RequestMapping(value = "/registration")
-    public String addUser(Model model) {
-        model.addAttribute("newUser");
-        return "registration";
+
+
+    @RequestMapping("/register")
+    public String registration(Model model){
+        model.addAttribute("newUser", new User());
+        return "register";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("newUser") User user, Model model) {
-        model.addAttribute("welcomeUser", userService.addUser(user));
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String registration(@ModelAttribute("newUser") User user, Model model){
+        User existingUser = userService.addUser(user);
+        if (existingUser != null){
+            model.addAttribute("welcomeUser", existingUser);
+        }
         return "welcome";
+
     }
 
 }

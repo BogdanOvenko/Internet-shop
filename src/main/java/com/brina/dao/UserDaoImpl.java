@@ -26,15 +26,34 @@ public class UserDaoImpl implements UserDao {
         this.dataSource=dataSource;
     }
 
+
+
     @Override
+    public User findUser(User user) {
+        String hql = "from User where name = :name and password = :password";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setString("name", user.getName());
+        query.setString("password", user.getPassword());
+        return (User) query.uniqueResult();
+    }
+
+   /* @Override
     public User findUser(User user) {
         String hql = "from User where name = :name";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setString("name", user.getName());
         return (User) query.uniqueResult();
-    }
+    }*/
 
-    @Override
+   @Override
+   public User addUser(User user){
+       Integer userId = (Integer) sessionFactory.getCurrentSession().save(user);
+       return (User) sessionFactory.getCurrentSession().get(User.class, userId);
+
+   }
+
+
+    /*@Override
     public User addUser(User user) {
         Connection connection=null;
 
@@ -58,7 +77,7 @@ public class UserDaoImpl implements UserDao {
 
         }
         return null;
-    }
+    }*/
 }
 
 
