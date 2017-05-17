@@ -2,17 +2,16 @@ package com.brina.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class User implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "password")
     private String password;
@@ -20,20 +19,18 @@ public class User implements Serializable{
     @Column(name = "email")
     private String email;
 
-    public Integer getId() {
-        return id;
+    @Column(name = "enabled")
+    private Boolean enabled = true;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<UserRoles> userRoles = new ArrayList<>();
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -52,6 +49,22 @@ public class User implements Serializable{
         this.email = email;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<UserRoles> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<UserRoles> userRoles) {
+        this.userRoles = userRoles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,14 +72,14 @@ public class User implements Serializable{
 
         User user = (User) o;
 
-        if (!getName().equals(user.getName())) return false;
+        if (!getUsername().equals(user.getUsername())) return false;
         return getPassword().equals(user.getPassword());
     }
 
 
     @Override
     public int hashCode() {
-        int result = getName().hashCode();
+        int result = getUsername().hashCode();
         result = 31 * result + getPassword().hashCode();
         return result;
     }

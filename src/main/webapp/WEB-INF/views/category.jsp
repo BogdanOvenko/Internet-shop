@@ -28,6 +28,6 @@
         </tr>
     </c:forEach>
 </table>
-
+<a href="<c:out value="/product/add"/>"><h3>Add new product</h3></a>
 </body>
 </html>

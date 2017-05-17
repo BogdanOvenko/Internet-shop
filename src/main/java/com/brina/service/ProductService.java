@@ -7,5 +7,9 @@ import com.brina.model.Product;
  */
 public interface ProductService {
 
-    Product getProductById(Integer id);
+    Product getProductById(Long id);
+
+    Product getProductByIdWithCategory(Long id);
+
+    Product addProduct(Product product);
 }

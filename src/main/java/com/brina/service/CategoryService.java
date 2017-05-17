@@ -11,5 +11,9 @@ public interface CategoryService {
 
     List<Category> getAllCategories();
 
-    Category getCategoryById(Integer id);
+    Category getCategoryById(Long id);
+
+    Category getCategoryByIdWithProducts(Long id);
+
+    Category addCategory(Category category);
 }

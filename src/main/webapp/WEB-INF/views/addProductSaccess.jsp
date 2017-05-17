@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: brina
-  Date: 4/13/17
-  Time: 1:19 PM
+  User: Bogdan
+  Date: 06.05.2017
+  Time: 10:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Welcome</title>
+    <title>Add Product Saccess</title>
 </head>
 <body>
-    <h1>Hello ${welcomeUser.username}!!!</h1>
+    
 </body>
 </html>

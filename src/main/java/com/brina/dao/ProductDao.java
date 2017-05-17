@@ -5,7 +5,9 @@ import com.brina.model.Product;
 /**
  * Created by Bogdan on 01.05.2017.
  */
-public interface ProductDao {
+public interface ProductDao extends GenericDao<Product> {
 
-    Product getProductById(Integer id);
+    Product getProductByIdWithCategory(Long id);
+
+
 }

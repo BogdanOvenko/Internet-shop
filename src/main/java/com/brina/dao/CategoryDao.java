@@ -2,14 +2,11 @@ package com.brina.dao;
 
 import com.brina.model.Category;
 
-import java.util.List;
-
 /**
  * Created by Bogdan on 29.04.2017.
  */
-public interface CategoryDao {
+public interface CategoryDao extends GenericDao<Category> {
 
-    List<Category> getCategories();
+    Category getCategoryByIdWithProducts(Long id);
 
-    Category getCategoryById(Integer id);
 }

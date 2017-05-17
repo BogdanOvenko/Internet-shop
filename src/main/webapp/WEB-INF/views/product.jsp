@@ -18,6 +18,8 @@
     <h2 align="center">${product.category.categoryName}->${product.productName}</h2>
     <p style="margin-top: 50px">description - ${product.description}</p>
     <p>price - ${product.price}</p>
+
+
 </table>
 </body>
 </html>
