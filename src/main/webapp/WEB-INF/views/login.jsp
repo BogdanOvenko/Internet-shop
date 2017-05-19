@@ -32,6 +32,8 @@
 
         <form:label path="password">Password</form:label>
         <form:input path="password" type="password"/>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <button type="submit">Log In</button>
     </form:form>
 </body>

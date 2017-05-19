@@ -45,8 +45,6 @@ public class UserController {
         return "error";
     }
 
-
-
     @RequestMapping("/register")
     public String registration(Model model){
         model.addAttribute("newUser", new User());

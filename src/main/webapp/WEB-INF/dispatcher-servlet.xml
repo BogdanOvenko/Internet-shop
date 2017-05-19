@@ -14,7 +14,7 @@
               http://www.springframework.org/schema/security
                http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <bean id ="dispatcher" class="org.springframework.web.servlet.DispatcherServlet" scope="singleton">
+    <bean id ="dispatcher" class="org.springframework.web.servlet.DispatcherServlet">
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -51,7 +51,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/WEB-INF/resources/**" location="/WEB-INF/resources/"/>
     <mvc:annotation-driven/>
     <tx:annotation-driven/>
     <context:component-scan base-package="com.brina.*"/>
